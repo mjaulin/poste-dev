@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+CURRENT_DIR=$(pwd)
+echo "$CURRENT_DIR"
+components=(Java Maven Git GitEye Eclipse)
+
+echo "#### BUILD MASTER IMAGES"
+echo 
+for component in ${components[@]} 
+do
+	echo
+	echo
+	echo
+	echo "#### BUILD $component";
+	cd $component
+	sh build
+	cd $CURRENT_DIR
+done
+echo
+echo "#### BUILD USER IMAGES"
+echo
+for component in ${components[@]}
+do
+	echo
+	echo
+	echo
+	echo "#### BUILD $component";
+	cd $component/User
+	sh build
+	cd $CURRENT_DIR
+done

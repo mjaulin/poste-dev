@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ -d "/home/$USER/.m2" ]
+then
+	sudo chown -R $USER:$USER /home/$USER/.m2
+else
+	mkdir -p /home/$USER/.m2
+fi
+docker build --build-arg DEVELOPER=${USER} --build-arg UID=$(id -u) --build-arg GID=$(id -g) -t maven-${USER} .

@@ -1,0 +1,1 @@
+docker build --build-arg DEVELOPER=${USER} --build-arg UID=$(id -u) --build-arg GID=$(id -g) -t java/jdk8-${USER} .
