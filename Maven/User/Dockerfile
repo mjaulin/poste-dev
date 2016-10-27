@@ -8,6 +8,8 @@ ENV UID=${UID}
 ENV GID=${GID}
 ENV DEVELOPER ${DEVELOPER}
 
+COPY settings.xml /home/${DEVELOPER}/.m2/settings.xml
+
 RUN mkdir -p /home/${DEVELOPER}/workspace && \
         echo "${DEVELOPER}:x:${UID}:${GID}:${DEVELOPER},,,:/home/${DEVELOPER}:/bin/bash" >> /etc/passwd && \
         echo "${DEVELOPER}:x:${UID}:" >> /etc/group && \
@@ -17,5 +19,5 @@ RUN mkdir -p /home/${DEVELOPER}/workspace && \
         chown root:root /usr/bin/sudo && chmod 4755 /usr/bin/sudo
 
 USER ${DEVELOPER}
-VOLUME ["/home/${DEVELOPER}/workspace", "/home/${DEVELOPER}/.m2"] 
+VOLUME ["/home/${DEVELOPER}/workspace", "/home/${DEVELOPER}/repository"] 
 WORKDIR /home/${DEVELOPER}/workspace
