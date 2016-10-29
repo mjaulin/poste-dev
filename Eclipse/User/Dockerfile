@@ -8,8 +8,11 @@ ENV UID=${UID}
 ENV GID=${GID}
 ENV DEVELOPER ${DEVELOPER}
 
-RUN mkdir -p /home/${DEVELOPER}/workspace && \
-        echo "${DEVELOPER}:x:${UID}:${GID}:${DEVELOPER},,,:/home/${DEVELOPER}:/bin/bash" >> /etc/passwd && \
+RUN mkdir -p /home/${DEVELOPER}/workspace /home/${DEVELOPER}/.m2
+
+COPY settings.xml /home/${DEVELOPER}/.m2/
+
+RUN echo "${DEVELOPER}:x:${UID}:${GID}:${DEVELOPER},,,:/home/${DEVELOPER}:/bin/bash" >> /etc/passwd && \
         echo "${DEVELOPER}:x:${UID}:" >> /etc/group && \
         echo "${DEVELOPER} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/${DEVELOPER} && \
         chmod 0440 /etc/sudoers.d/${DEVELOPER} && \
@@ -20,3 +23,5 @@ RUN mkdir -p /home/${DEVELOPER}/workspace && \
 USER ${DEVELOPER}
 ENV HOME /home/${DEVELOPER}
 WORKDIR /home/${DEVELOPER}
+
+VOLUME ["/home/${DEVELOPER}/workspace", "/home/${DEVELOPER}/.eclipse", "/home/${DEVELOPER}/repository"]
