@@ -2,6 +2,8 @@
 
 ```
 sudo ./install
+sudo usermod -aG docker $USER
+sudo reboot
 ```
 Restart the session
 ### UTILS
