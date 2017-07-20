@@ -1,5 +1,5 @@
-FROM java/jdk8
-MAINTAINER Matthieu Jaulin "mjaulin@sii.fr"
+FROM demo.sii.fr:5000/java_jdk8
+LABEL authors="Matthieu Jaulin <mjaulin@sii.fr>"
 
 ENV MAVEN_VERSION 3.3.9
 

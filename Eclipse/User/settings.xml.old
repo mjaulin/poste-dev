@@ -11,6 +11,14 @@
 		</server>
 	</servers>
 
+	<mirrors>
+		<mirror>
+			<id>artifactory</id>
+			<mirrorOf>*</mirrorOf>
+			<url>http://artifactory:9081/artifactory/libs-snapshot</url>
+		</mirror>
+	</mirrors>
+	
 	<profiles>
 		<profile>
 			<id>allow-snaphots</id>

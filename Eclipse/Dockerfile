@@ -1,5 +1,5 @@
-FROM maven
-MAINTAINER Matthieu Jaulin "mjaulin@sii.fr"
+FROM demo.sii.fr:5000/maven_3.3.9
+LABEL authors="Matthieu Jaulin <mjaulin@sii.fr>"
 
 ADD run /usr/local/bin/eclipse
 

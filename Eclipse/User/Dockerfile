@@ -1,5 +1,5 @@
-FROM eclipse
-MAINTAINER Matthieu Jaulin "mjaulin@sii.fr"
+FROM demo.sii.fr:5000/eclipse_neon
+LABEL authors="Matthieu Jaulin <mjaulin@sii.fr>"
 
 ARG UID=1000
 ARG GID=1000
@@ -9,6 +9,7 @@ ENV GID=${GID}
 ENV DEVELOPER ${DEVELOPER}
 
 RUN mkdir -p /home/${DEVELOPER}/workspace /home/${DEVELOPER}/.m2
+RUN mkdir -p /home/${DEVELOPER}/.eclipse
 
 COPY settings.xml /home/${DEVELOPER}/.m2/
 

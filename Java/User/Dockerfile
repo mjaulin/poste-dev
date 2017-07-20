@@ -1,5 +1,5 @@
-FROM java/jdk8
-MAINTAINER Matthieu Jaulin "mjaulin@sii.fr"
+FROM demo.sii.fr:5000/java_jdk8
+LABEL authors="Matthieu Jaulin <mjaulin@sii.fr>"
 
 ARG UID=1000
 ARG GID=1000
